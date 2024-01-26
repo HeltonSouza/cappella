@@ -1,0 +1,343 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cappella Bus Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'dashboard/css/supreme.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+    
+</head>
+
+<body> 
+        <div style="height: 1080px; display: flex; align-items: center; justify-content: center;">
+                <div style="height: 1080px;">
+                        <div class="div-bg-gauge-2">
+                                <canvas id="idAir1"></canvas>
+                        </div>
+                        <div class="div-bg-gauge-2">
+                                <canvas id="idAir2"></canvas>
+                        </div>
+                </div>
+                <div class="div-bg-gauge-1">
+                        <canvas id="idSpeed"></canvas>
+                </div>
+                <div class="div-bg-gauge-2">
+                        <canvas id="idRpm"></canvas>
+                </div>
+        </div>
+        
+        <script>
+                function initDashboardGauges() {
+                        new RadialGauge({
+                                renderTo: 'idSpeed',
+                                width: 850,
+                                height: 850,
+                                units: 'MPH',
+                                title: 'SPEED',
+                                value: 75,
+                                minValue: 0,
+                                maxValue: 90,
+                                animateOnInit: true,
+                                majorTicks: ['0','10','20','30','40','50','60','70','80','90'],
+                                minorTicks: 4,
+                                strokeTicks: true,
+                                highlights:[
+                                {from: 75, to: 90, color: '#DC2424'}
+                                ],
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#AAAAAA',
+                                colorUnits: '#AAAAAA',
+                                colorNumbers: '#EEEFF1',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Extrabold',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1500,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox:true,
+                                valueBoxStroke:0,
+                                valueBoxWidth:30,
+                                valueTextShadow:false,
+                                valueBoxBorderRadius:1,
+                                valueInt:2,
+                                valueDec:0,
+                                colorValueText: '#EEEFF1',
+                                colorValueBoxBackground: 'rgba(255, 255, 255, .08)',
+                        }).draw();
+
+                        new RadialGauge({
+                                renderTo: 'idRpm',
+                                width: 500,
+                                height: 500,
+                                units: 'RPM',
+                                title: 'x100',
+                                value: 35,
+                                minValue: 0,
+                                maxValue: 40,
+                                animateOnInit: true,
+                                majorTicks: ['0','5','10','15','20','25','30','35','40'],
+                                minorTicks: 4,
+                                strokeTicks: true,
+                                highlights:[
+                                {from: 30, to: 40, color: '#ff0000'}
+                                ],
+                                highlightsWidth: 4,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Extrabold',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1500,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox:true,
+                                valueBoxStroke:0,
+                                valueBoxWidth:30,
+                                valueTextShadow:false,
+                                valueBoxBorderRadius:1,
+                                valueInt:2,
+                                valueDec:0,
+                        }).draw();
+
+                        new RadialGauge({
+                                renderTo: 'idAir1',
+                                width: 500,
+                                height: 500,
+                                units: 'PSI',
+                                title: 'PRIMARY AIR',
+                                value: 75,
+                                minValue: 0,
+                                maxValue: 150,
+                                animateOnInit: true,
+                                majorTicks: ['0','30','60','90','120','150'],
+                                minorTicks: 6,
+                                strokeTicks: true,
+                                highlights:[
+                                {from: 0, to: 70, color: '#ff0000'},
+                                {from: 70, to: 120, color: '#00d400'},
+                                {from: 120, to: 150, color: '#ff0000'},
+                                ],
+                                highlightsWidth: 4,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Extrabold',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1500,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox:true,
+                                valueBoxStroke:0,
+                                valueBoxWidth:30,
+                                valueTextShadow:false,
+                                valueBoxBorderRadius:1,
+                                valueInt:2,
+                                valueDec:0,
+                        }).draw();
+                        new RadialGauge({
+                                renderTo: 'idAir2',
+                                width: 500,
+                                height: 500,
+                                units: 'PSI',
+                                title: 'SECONDARY AIR',
+                                value: 75,
+                                minValue: 0,
+                                maxValue: 150,
+                                animateOnInit: true,
+                                majorTicks: ['0','30','60','90','120','150'],
+                                minorTicks: 6,
+                                strokeTicks: true,
+                                highlights:[
+                                {from: 0, to: 70, color: '#ff0000'},
+                                {from: 70, to: 120, color: '#00d400'},
+                                {from: 120, to: 150, color: '#ff0000'},
+                                ],
+                                highlightsWidth: 4,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Extrabold',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1500,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox:true,
+                                valueBoxStroke:0,
+                                valueBoxWidth:30,
+                                valueTextShadow:false,
+                                valueBoxBorderRadius:1,
+                                valueInt:2,
+                                valueDec:0,
+                        }).draw();
+
+                        new RadialGauge({
+                                renderTo: 'idTest1',
+                                value: 150,
+                                width: 300,
+                                height: 300,
+                                units: "Km/h",
+                                minValue: 0,
+                                startAngle: 0,
+                                ticksAngle: 180,
+                                valueBox: true,
+                                maxValue: 220,
+                                majorTicks: [
+                                        "100",
+                                        "180",
+                                        "220",
+                                        "250"
+                                ],
+                                minorTicks: 2,
+                                strokeTicks: true,
+                                highlights: [
+                                        {
+                                        "from": 160,
+                                        "to": 220,
+                                        "color": "rgba(200, 50, 50, .75)"
+                                        }
+                                ],
+                                colorPlate: "#fff",
+                                borderShadowWidth: 0,
+                                borders: false,
+                                needleType: "arrow",
+                                needleWidth: 2,
+                                needleCircleSize: 7,
+                                needleCircleOuter: true,
+                                needleCircleInner: false,
+                                animateOnInit: true,
+                                animationDuration: 1500,
+                                animationRule: "linear",
+                        }).draw();
+                        
+                }
+
+                
+
+                document.fonts && document.fonts.forEach(function(font) {
+                        font.loaded.then(function() {
+                                if (font.family.match(/Supreme/)) {
+                                        document.gauges.forEach(function(gauge) {
+                                                gauge.update();
+                                        });
+                                }
+                        });
+                });
+        </script>
+
+        <script async src="{% static 'gauge.min.js' %}" onload="initDashboardGauges()"></script>
+
+        
+</body>
+
+</html>
