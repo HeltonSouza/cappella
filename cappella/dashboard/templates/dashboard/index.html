@@ -13,7 +13,7 @@
     
 </head>
 
-<body> 
+<body style="overflow: hidden;"> 
         <div style="height: 1080px; display: flex; align-items: center; justify-content: center;">
                 <div style="height: 1080px; padding-top: 40px;">
                         <div class="div-bg-gauge-2">
@@ -87,7 +87,7 @@
                                 needleCircleSize: 10,
                                 needleCircleOuter:true,
                                 needleCircleInner:true,
-                                animationDuration:1500,
+                                animationDuration:1000,
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
@@ -151,7 +151,7 @@
                                 needleCircleSize: 10,
                                 needleCircleOuter:true,
                                 needleCircleInner:true,
-                                animationDuration:1500,
+                                animationDuration:1000,
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
@@ -209,7 +209,7 @@
                                 needleCircleSize: 10,
                                 needleCircleOuter:true,
                                 needleCircleInner:true,
-                                animationDuration:1500,
+                                animationDuration:1000,
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
@@ -266,7 +266,7 @@
                                 needleCircleSize: 10,
                                 needleCircleOuter:true,
                                 needleCircleInner:true,
-                                animationDuration:1500,
+                                animationDuration:1000,
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
@@ -322,13 +322,13 @@
                                 needleCircleSize: 10,
                                 needleCircleOuter:true,
                                 needleCircleInner:true,
-                                animationDuration:1500,
+                                animationDuration:1000,
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
                                 valueBox: false
                         }).draw();
-                        
+                        animateGauges();
                 }
                 document.fonts && document.fonts.forEach(function(font) {
                         font.loaded.then(function() {
@@ -339,6 +339,18 @@
                                 }
                         });
                 });
+
+                var timers = [];
+
+                function animateGauges() {
+                        document.gauges.forEach(function(gauge) {
+                                timers.push(setInterval(function() {
+                                gauge.value = Math.random() *
+                                        (gauge.options.maxValue - gauge.options.minValue) +
+                                        gauge.options.minValue;
+                                }, gauge.animation.duration + 500));
+                        });
+                }
         </script>
 
         <script async src="{% static 'gauge.min.js' %}" onload="initDashboardGauges()"></script>
