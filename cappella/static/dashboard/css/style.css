@@ -8,7 +8,8 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: black;
-    /* overflow: hidden; */
+    background-position: 0 0;
+    background-repeat: no-repeat;
 }
 
 table, caption, tbody, tfoot, thead, tr, th, td {
@@ -28,11 +29,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     margin-left: 5px;
     margin-right: 5px;
     width: 800px;
-    height: 800px;
+    height: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url("../img/v2.png"); */
     background-position: 0px, 0px;
     background-repeat: no-repeat;
 }
@@ -44,13 +44,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url("../img/v2.png"); */
     background-position: 0px, 0px;
     background-repeat: no-repeat;
 }
 
 .side-table {
-    /*border: solid 1px white; color: aliceblue; */
     border: none;
     width: 370px;
     vertical-align: middle;
@@ -58,12 +56,19 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 .side-table-title-1 {
     font-family: 'Supreme-Bold';
+    color: #eee;
     font-size: 50px;
     line-height: 50px;
     text-align: center;
 }
 .side-table-content-1 {
     font-family: 'Supreme-Regular';
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 45px;
+    line-height: 45px;
+}
+
+.side-table-icon-1 {
+    width: 160px; 
+    height: 160px; 
+    text-align: center;
 }

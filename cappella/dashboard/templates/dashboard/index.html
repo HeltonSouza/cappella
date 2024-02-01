@@ -13,9 +13,9 @@
     
 </head>
 
-<body style="overflow: hidden;"> 
+<body style="overflow: hidden; background-image: radial-gradient(ellipse, #290A08, #0B0303, #000000);"> 
         <div style="height: 1080px; display: flex; align-items: center; justify-content: center;">
-                <div style="height: 1080px; padding-top: 40px;">
+                <div style="height: 1080px; padding-top: 150px;">
                         <table class="side-table">
                                 <tr>
                                         <td class="side-table-title-1" colspan="2">
@@ -28,24 +28,11 @@
                                         </td>
                                 </tr>
                                 <tr>
-                                        <td style="width: 180px; height: 180px; text-align: center;">
-                                                <img src="{% static 'dashboard/img/icon-temp-gray.png' %}" style="width: 180px; height: 180px;">
+                                        <td class="side-table-icon-1">
+                                                <img src="{% static 'dashboard/img/icon-temp.png' %}" style="width: 120px; height: 120px;">
                                         </td>
-                                        <td class="side-table-content-1" style="width: 190px;">
-                                                45°F
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td class="side-table-title-1" colspan="2">
-                                                &nbsp;
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td style="width: 180px; height: 180px; text-align: center;">
-                                                <img src="{% static 'dashboard/img/icon-humidity-gray.png' %}" style="width: 180px; height: 180px;">
-                                        </td>
-                                        <td class="side-table-content-1" style="width: 190px;">
-                                                32%
+                                        <td class="side-table-content-1">
+                                                45 °F
                                         </td>
                                 </tr>
                                 <tr>
@@ -54,11 +41,24 @@
                                         </td>
                                 </tr>
                                 <tr>
-                                        <td style="width: 180px; height: 180px; text-align: center;">
-                                                <img src="{% static 'dashboard/img/icon-pressure-gray.png' %}" style="width: 180px; height: 180px;">
+                                        <td class="side-table-icon-1">
+                                                <img src="{% static 'dashboard/img/icon-humidity.png' %}" style="width: 120px; height: 120px;">
                                         </td>
-                                        <td class="side-table-content-1" style="width: 190px;">
-                                                32hPa
+                                        <td class="side-table-content-1">
+                                                32 %
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-icon-1">
+                                                <img src="{% static 'dashboard/img/icon-pressure.png' %}" style="width: 120px; height: 120px;">
+                                        </td>
+                                        <td class="side-table-content-1">
+                                                1.24 ATM
                                         </td>
                                 </tr>
                         </table>
@@ -84,7 +84,7 @@
                         <div class="div-bg-gauge-1">
                                 <canvas id="idSpeed"></canvas>
                         </div>
-                        <div style="margin-left: 5px; margin-right: 5px; width: 850px; height: 240px; display: flex; justify-content: center; align-items: center;">
+                        <div style="margin-left: 5px; margin-right: 5px; width: 850px; height: 290px; display: flex; justify-content: center; align-items: center;">
                                 <canvas id="idFuel"></canvas>
                         </div>
                 </div>
@@ -106,7 +106,7 @@
                                 <canvas id="idIntakeManifoldTemp"></canvas>
                         </div>
                 </div>
-                <div style="height: 1080px; padding-top: 40px;">
+                <div style="height: 1080px; padding-top: 150px;">
                         <table class="side-table">
                                 <tr>
                                         <td class="side-table-title-1" colspan="2">
@@ -119,24 +119,11 @@
                                         </td>
                                 </tr>
                                 <tr>
-                                        <td style="width: 180px; height: 180px; text-align: center;">
-                                                <img src="{% static 'dashboard/img/icon-temp-gray.png' %}" style="width: 180px; height: 180px;">
+                                        <td class="side-table-icon-1">
+                                                <img src="{% static 'dashboard/img/icon-temp.png' %}" style="width: 120px; height: 120px;">
                                         </td>
-                                        <td class="side-table-content-1" style="width: 190px;">
-                                                45°F
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td class="side-table-title-1" colspan="2">
-                                                &nbsp;
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td style="width: 180px; height: 180px; text-align: center;">
-                                                <img src="{% static 'dashboard/img/icon-humidity-gray.png' %}" style="width: 180px; height: 180px;">
-                                        </td>
-                                        <td class="side-table-content-1" style="width: 190px;">
-                                                32%
+                                        <td class="side-table-content-1">
+                                                45 °F
                                         </td>
                                 </tr>
                                 <tr>
@@ -145,13 +132,19 @@
                                         </td>
                                 </tr>
                                 <tr>
-                                        <td style="width: 180px; height: 180px; text-align: center;">
-                                                <img src="{% static 'dashboard/img/icon-pressure-gray.png' %}" style="width: 180px; height: 180px;">
+                                        <td class="side-table-icon-1">
+                                                <img src="{% static 'dashboard/img/icon-humidity.png' %}" style="width: 120px; height: 120px;">
                                         </td>
-                                        <td class="side-table-content-1" style="width: 190px;">
-                                                32hPa
+                                        <td class="side-table-content-1">
+                                                32 %
                                         </td>
                                 </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                
                         </table>
                 </div>
         </div>
@@ -160,8 +153,8 @@
                 function initDashboardGauges() {
                         new RadialGauge({
                                 renderTo: 'idSpeed',
-                                width: 800,
-                                height: 800,
+                                width: 750,
+                                height: 750,
                                 units: 'MPH',
                                 title: 'SPEED',
                                 value: 65,
@@ -225,9 +218,8 @@
                         new LinearGauge({
                                 renderTo: 'idFuel',
                                 width: 850,
-                                height: 240,
-                                units: 'GALLONS',
-                                title: 'FUEL',
+                                height: 290,
+                                title: 'GILLIG',
                                 value: 65,
                                 minValue: 0,
                                 maxValue: 100,
@@ -242,7 +234,7 @@
                                 colorPlate: 'rgba(0, 0, 0, 0)',
                                 colorMajorTicks: '#f5f5f5',
                                 colorMinorTicks: '#ddd',
-                                colorTitle: '#ccc',
+                                colorTitle: '#eee',
                                 colorUnits: '#ccc',
                                 colorNumbers: '#eee',
                                 colorNeedle: '#377FC0',
@@ -256,25 +248,23 @@
                                 needleType: "line",
                                 needleWidth: 5,
                                 fontNumbers: 'Supreme-Medium',
-                                fontTitle: 'Supreme-Bold',
+                                fontTitle: 'Supreme-Extrabold',
                                 fontUnits: 'Supreme-Bold',
                                 fontValue: 'Supreme-Bold',
-                                fontTitleSize: 40,
-                                fontUnitsSize: 40,
+                                fontTitleSize: 38,
+                                fontUnitsSize: 30,
                                 fontValueSize:55,
-                                fontNumbersSize: 40,
+                                fontNumbersSize: 30,
                                 animationDuration: 1000,
                                 animationRule: "linear",
                                 animationTarget: "plate",
                                 barWidth: 8,
-                                //colorBar: "#377FC0",
                                 colorBarProgress: "#377FC0",
                                 ticksWidth: 20,
                                 ticksWidthMinor: 15,
                                 animatedValue:true,
-                                
                                 needle:true,
-                                needleShadow: true
+                                needleShadow: true,
                         }).draw();
 
                         new RadialGauge({
@@ -388,7 +378,7 @@
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
-                                valueBox: false
+                                valueBox: false,
                         }).draw();
                         new RadialGauge({
                                 renderTo: 'idAir2',
@@ -445,7 +435,7 @@
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
-                                valueBox: false
+                                valueBox: false,
                         }).draw();
 
                         new RadialGauge({
@@ -501,7 +491,7 @@
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
-                                valueBox: false
+                                valueBox: false,
                         }).draw();
 
                         new RadialGauge({
@@ -518,7 +508,6 @@
                                 minorTicks: 4,
                                 strokeTicks: true,
                                 highlights:[
-                                        //{from: 220, to: 260, color: 'rgba(220,36,36,0.75)'}
                                 ],
                                 highlightsWidth: 7,
                                 colorPlate: 'rgba(0, 0, 0, 0)',
@@ -557,7 +546,7 @@
                                 animationRule:'linear',
                                 ticksAngle:250,
                                 startAngle:55,
-                                valueBox: false
+                                valueBox: false,
                         }).draw();
                         new RadialGauge({
                                 renderTo: 'idBattery',
@@ -729,69 +718,6 @@
                                 valueBox: false
                         }).draw();
 
-                        /*
-                        new LinearGauge({
-                                renderTo: 'idOutsideTemp',
-                                width: 300,
-                                height: 400,
-                                //units: '°F',
-                                title: 'TEMP (°F)',
-                                value: 65,
-                                minValue: -40,
-                                maxValue: 140,
-                                animateOnInit: true,
-                                majorTicks: ["-40","0","32","70","140"],
-                                minorTicks: 3,
-                                strokeTicks: true,
-                                highlights:[],
-                                highlightsWidth: 7,
-                                colorPlate: 'rgba(0, 0, 0, 0)',
-                                colorMajorTicks: '#f5f5f5',
-                                colorMinorTicks: '#ddd',
-                                colorTitle: '#ccc',
-                                colorUnits: '#ccc',
-                                colorNumbers: '#eee',
-                                colorNeedle: 'rgba(220,36,36,1)',
-                                colorNeedleStart: 'rgba(220,36,36,1)',
-                                colorNeedleEnd: 'rgba(220,36,36,1)',
-                                borders: false,
-                                barBeginCircle: false,
-                                tickSide: "left",
-                                numberSide: "left",
-                                needleSide: "left",
-                                needleType: "line",
-                                needleWidth: 3,
-                                fontNumbers: 'Supreme-Medium',
-                                fontTitle: 'Supreme-Medium',
-                                fontUnits: 'Supreme-Medium',
-                                fontValue: 'Supreme-Medium',
-                                fontTitleSize: 17,
-                                fontUnitsSize: 5,
-                                fontValueSize: 25,
-                                fontNumbersSize: 20,
-                                animationDuration: 1000,
-                                animationRule: "linear",
-                                animationTarget: "plate",
-                                barWidth: 8,
-                                colorBarProgress: "rgba(220,36,36,1)",
-                                ticksWidth: 6,
-                                ticksWidthMinor: 5,
-                                animatedValue:true,
-                                needle:false,
-                                needleShadow: true,
-                                valueBox:true,
-                                valueBoxStroke:0,
-                                valueBoxWidth:20,
-                                valueTextShadow:false,
-                                valueBoxBorderRadius:1,
-                                valueInt:1,
-                                valueDec:0,
-                                colorValueText: '#EEEFF1',
-                                colorValueBoxBackground: 'rgba(255, 255, 255, .08)',
-                        }).draw(); */
-
-
-
                         animateGauges();
                 }
                 document.fonts && document.fonts.forEach(function(font) {
@@ -817,6 +743,7 @@
                 }
                 setTimeout(function(){
                         window.location.reload();
+                        document.body.scrollTop = document.documentElement.scrollTop = 0;
                 }, ((60*1000)*5) );
         </script>
 
