@@ -16,6 +16,62 @@
 <body style="overflow: hidden;"> 
         <div style="height: 1080px; display: flex; align-items: center; justify-content: center;">
                 <div style="height: 1080px; padding-top: 40px;">
+                        <table class="side-table">
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                OUTSIDE
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td style="width: 180px; height: 180px; text-align: center;">
+                                                <img src="{% static 'dashboard/img/icon-temp-gray.png' %}" style="width: 180px; height: 180px;">
+                                        </td>
+                                        <td class="side-table-content-1" style="width: 190px;">
+                                                45°F
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td style="width: 180px; height: 180px; text-align: center;">
+                                                <img src="{% static 'dashboard/img/icon-humidity-gray.png' %}" style="width: 180px; height: 180px;">
+                                        </td>
+                                        <td class="side-table-content-1" style="width: 190px;">
+                                                32%
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td style="width: 180px; height: 180px; text-align: center;">
+                                                <img src="{% static 'dashboard/img/icon-pressure-gray.png' %}" style="width: 180px; height: 180px;">
+                                        </td>
+                                        <td class="side-table-content-1" style="width: 190px;">
+                                                32hPa
+                                        </td>
+                                </tr>
+                        </table>
+                </div>
+                <div style="height: 1080px; padding-top: 40px;">
+                        <div class="div-bg-gauge-2">
+                                <canvas id="idOil"></canvas>
+                        </div>
+                        <div class="div-bg-gauge-2">
+                                <canvas id="idBattery"></canvas>
+                        </div>
+                </div>
+                <div style="height: 1080px; padding-top: 40px;">
                         <div class="div-bg-gauge-2">
                                 <canvas id="idAir1"></canvas>
                         </div>
@@ -23,9 +79,17 @@
                                 <canvas id="idAir2"></canvas>
                         </div>
                 </div>
-                <div class="div-bg-gauge-1">
-                        <canvas id="idSpeed"></canvas>
+
+                <div style="height: 1080px; padding-top: 40px;">
+                        <div class="div-bg-gauge-1">
+                                <canvas id="idSpeed"></canvas>
+                        </div>
+                        <div style="margin-left: 5px; margin-right: 5px; width: 850px; height: 240px; display: flex; justify-content: center; align-items: center;">
+                                <canvas id="idFuel"></canvas>
+                        </div>
                 </div>
+                
+                
                 <div style="height: 1080px; padding-top: 40px;">
                         <div class="div-bg-gauge-2">
                                 <canvas id="idRpm"></canvas>
@@ -34,14 +98,70 @@
                                 <canvas id="idCoolantTemp"></canvas>
                         </div>
                 </div>
+                <div style="height: 1080px; padding-top: 40px;">
+                        <div class="div-bg-gauge-2">
+                                <canvas id="idEngineLoad"></canvas>
+                        </div>
+                        <div class="div-bg-gauge-2">
+                                <canvas id="idIntakeManifoldTemp"></canvas>
+                        </div>
+                </div>
+                <div style="height: 1080px; padding-top: 40px;">
+                        <table class="side-table">
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                CABIN
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td style="width: 180px; height: 180px; text-align: center;">
+                                                <img src="{% static 'dashboard/img/icon-temp-gray.png' %}" style="width: 180px; height: 180px;">
+                                        </td>
+                                        <td class="side-table-content-1" style="width: 190px;">
+                                                45°F
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td style="width: 180px; height: 180px; text-align: center;">
+                                                <img src="{% static 'dashboard/img/icon-humidity-gray.png' %}" style="width: 180px; height: 180px;">
+                                        </td>
+                                        <td class="side-table-content-1" style="width: 190px;">
+                                                32%
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td class="side-table-title-1" colspan="2">
+                                                &nbsp;
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td style="width: 180px; height: 180px; text-align: center;">
+                                                <img src="{% static 'dashboard/img/icon-pressure-gray.png' %}" style="width: 180px; height: 180px;">
+                                        </td>
+                                        <td class="side-table-content-1" style="width: 190px;">
+                                                32hPa
+                                        </td>
+                                </tr>
+                        </table>
+                </div>
         </div>
         
         <script>
                 function initDashboardGauges() {
                         new RadialGauge({
                                 renderTo: 'idSpeed',
-                                width: 850,
-                                height: 850,
+                                width: 800,
+                                height: 800,
                                 units: 'MPH',
                                 title: 'SPEED',
                                 value: 65,
@@ -58,9 +178,9 @@
                                 colorPlate: 'rgba(0, 0, 0, 0)',
                                 colorMajorTicks: '#f5f5f5',
                                 colorMinorTicks: '#ddd',
-                                colorTitle: '#AAAAAA',
-                                colorUnits: '#AAAAAA',
-                                colorNumbers: '#EEEFF1',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
                                 colorNeedle: '#377FC0',
                                 colorNeedleStart: '#377FC0',
                                 colorNeedleEnd: '#377FC0',
@@ -96,18 +216,73 @@
                                 valueBoxWidth:30,
                                 valueTextShadow:false,
                                 valueBoxBorderRadius:1,
-                                valueInt:2,
+                                valueInt:1,
                                 valueDec:0,
                                 colorValueText: '#EEEFF1',
                                 colorValueBoxBackground: 'rgba(255, 255, 255, .08)',
+                        }).draw();
+
+                        new LinearGauge({
+                                renderTo: 'idFuel',
+                                width: 850,
+                                height: 240,
+                                units: 'GALLONS',
+                                title: 'FUEL',
+                                value: 65,
+                                minValue: 0,
+                                maxValue: 100,
+                                animateOnInit: true,
+                                majorTicks: ["E","1/4","1/2","3/4","F"],
+                                minorTicks: 5,
+                                strokeTicks: true,
+                                highlights:[
+                                        {from: 0, to: 10, color: 'rgba(220,36,36,0.75)'}
+                                ],
+                                highlightsWidth: 7,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                borders: false,
+                                barBeginCircle: false,
+                                tickSide: "left",
+                                numberSide: "left",
+                                needleSide: "left",
+                                needleType: "line",
+                                needleWidth: 5,
+                                fontNumbers: 'Supreme-Medium',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 40,
+                                fontUnitsSize: 40,
+                                fontValueSize:55,
+                                fontNumbersSize: 40,
+                                animationDuration: 1000,
+                                animationRule: "linear",
+                                animationTarget: "plate",
+                                barWidth: 8,
+                                //colorBar: "#377FC0",
+                                colorBarProgress: "#377FC0",
+                                ticksWidth: 20,
+                                ticksWidthMinor: 15,
+                                animatedValue:true,
+                                
+                                needle:true,
+                                needleShadow: true
                         }).draw();
 
                         new RadialGauge({
                                 renderTo: 'idRpm',
                                 width: 520,
                                 height: 520,
-                                units: 'RPM',
-                                title: 'x100',
+                                units: 'x100',
+                                title: 'RPM',
                                 value: 26,
                                 minValue: 0,
                                 maxValue: 40,
@@ -328,6 +503,295 @@
                                 startAngle:55,
                                 valueBox: false
                         }).draw();
+
+                        new RadialGauge({
+                                renderTo: 'idOil',
+                                width: 520,
+                                height: 520,
+                                units: 'PSI',
+                                title: 'OIL',
+                                value: 72,
+                                minValue: 0,
+                                maxValue: 100,
+                                animateOnInit: true,
+                                majorTicks: ['0','20','40','60','80','100'],
+                                minorTicks: 4,
+                                strokeTicks: true,
+                                highlights:[
+                                        //{from: 220, to: 260, color: 'rgba(220,36,36,0.75)'}
+                                ],
+                                highlightsWidth: 7,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Medium',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                fontNumbersSize: 28,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1000,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox: false
+                        }).draw();
+                        new RadialGauge({
+                                renderTo: 'idBattery',
+                                width: 520,
+                                height: 520,
+                                units: 'VOLTS',
+                                title: 'BATTERY',
+                                value: 24,
+                                minValue: 18,
+                                maxValue: 32,
+                                animateOnInit: true,
+                                majorTicks: ['18','20','22','24','26','28','30','32'],
+                                minorTicks: 4,
+                                strokeTicks: true,
+                                highlights:[
+                                        {from: 18, to: 20, color: 'rgba(220,36,36,0.75)'},
+                                        {from: 20, to: 24, color: 'rgba(220,128,36,0.75)'},
+                                        {from: 24, to: 28, color: 'rgba(0,212,0,0.75)'},
+                                        {from: 28, to: 29, color: 'rgba(220,128,36,0.75)'},
+                                        {from: 29, to: 32, color: 'rgba(220,36,36,0.75)'},
+                                ],
+                                highlightsWidth: 7,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Medium',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                fontNumbersSize: 28,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1000,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox: false
+                        }).draw();
+                        new RadialGauge({
+                                renderTo: 'idEngineLoad',
+                                width: 520,
+                                height: 520,
+                                units: '%',
+                                title: 'ENGINE LOAD',
+                                value: 26,
+                                minValue: 0,
+                                maxValue: 100,
+                                animateOnInit: true,
+                                majorTicks: ['0','20','40','60','80','100'],
+                                minorTicks: 4,
+                                strokeTicks: true,
+                                highlights:[
+                                        {from: 80, to: 100, color: 'rgba(220,36,36,0.75)'}
+                                ],
+                                highlightsWidth: 7,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Medium',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                fontNumbersSize: 28,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1000,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox: false
+                        }).draw();
+                        new RadialGauge({
+                                renderTo: 'idIntakeManifoldTemp',
+                                width: 520,
+                                height: 520,
+                                units: '°F',
+                                title: 'IMA-T',
+                                value: 120,
+                                minValue: 0,
+                                maxValue: 200,
+                                animateOnInit: true,
+                                majorTicks: ['0','20','40','60','80','100','120','140','160','180','200'],
+                                minorTicks: 4,
+                                strokeTicks: true,
+                                highlights:[
+                                        {from: 160, to: 200, color: 'rgba(220,36,36,0.75)'}
+                                ],
+                                highlightsWidth: 7,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: '#377FC0',
+                                colorNeedleStart: '#377FC0',
+                                colorNeedleEnd: '#377FC0',
+                                fontNumbers: 'Supreme-Medium',
+                                fontTitle: 'Supreme-Bold',
+                                fontUnits: 'Supreme-Bold',
+                                fontValue: 'Supreme-Bold',
+                                fontTitleSize: 20,
+                                fontUnitsSize:25,
+                                fontValueSize:35,
+                                fontNumbersSize: 28,
+                                animatedValue:true,
+                                borders: false,
+                                borderOuterWidth: 0,
+                                borderMiddleWidth: 5,
+                                borderInnerWidth: 0,
+                                borderShadowWidth: 0,
+                                needle:true,
+                                needleShadow: true,
+                                needleType: 'line',
+                                needleStart: 0,
+                                needleEnd: 80,
+                                needleWidth: 3,
+                                needleCircleSize: 10,
+                                needleCircleOuter:true,
+                                needleCircleInner:true,
+                                animationDuration:1000,
+                                animationRule:'linear',
+                                ticksAngle:250,
+                                startAngle:55,
+                                valueBox: false
+                        }).draw();
+
+                        /*
+                        new LinearGauge({
+                                renderTo: 'idOutsideTemp',
+                                width: 300,
+                                height: 400,
+                                //units: '°F',
+                                title: 'TEMP (°F)',
+                                value: 65,
+                                minValue: -40,
+                                maxValue: 140,
+                                animateOnInit: true,
+                                majorTicks: ["-40","0","32","70","140"],
+                                minorTicks: 3,
+                                strokeTicks: true,
+                                highlights:[],
+                                highlightsWidth: 7,
+                                colorPlate: 'rgba(0, 0, 0, 0)',
+                                colorMajorTicks: '#f5f5f5',
+                                colorMinorTicks: '#ddd',
+                                colorTitle: '#ccc',
+                                colorUnits: '#ccc',
+                                colorNumbers: '#eee',
+                                colorNeedle: 'rgba(220,36,36,1)',
+                                colorNeedleStart: 'rgba(220,36,36,1)',
+                                colorNeedleEnd: 'rgba(220,36,36,1)',
+                                borders: false,
+                                barBeginCircle: false,
+                                tickSide: "left",
+                                numberSide: "left",
+                                needleSide: "left",
+                                needleType: "line",
+                                needleWidth: 3,
+                                fontNumbers: 'Supreme-Medium',
+                                fontTitle: 'Supreme-Medium',
+                                fontUnits: 'Supreme-Medium',
+                                fontValue: 'Supreme-Medium',
+                                fontTitleSize: 17,
+                                fontUnitsSize: 5,
+                                fontValueSize: 25,
+                                fontNumbersSize: 20,
+                                animationDuration: 1000,
+                                animationRule: "linear",
+                                animationTarget: "plate",
+                                barWidth: 8,
+                                colorBarProgress: "rgba(220,36,36,1)",
+                                ticksWidth: 6,
+                                ticksWidthMinor: 5,
+                                animatedValue:true,
+                                needle:false,
+                                needleShadow: true,
+                                valueBox:true,
+                                valueBoxStroke:0,
+                                valueBoxWidth:20,
+                                valueTextShadow:false,
+                                valueBoxBorderRadius:1,
+                                valueInt:1,
+                                valueDec:0,
+                                colorValueText: '#EEEFF1',
+                                colorValueBoxBackground: 'rgba(255, 255, 255, .08)',
+                        }).draw(); */
+
+
+
                         animateGauges();
                 }
                 document.fonts && document.fonts.forEach(function(font) {
@@ -351,6 +815,9 @@
                                 }, gauge.animation.duration + 500));
                         });
                 }
+                setTimeout(function(){
+                        window.location.reload();
+                }, ((60*1000)*5) );
         </script>
 
         <script async src="{% static 'gauge.min.js' %}" onload="initDashboardGauges()"></script>
